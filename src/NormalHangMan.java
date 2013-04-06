@@ -12,11 +12,11 @@ public class NormalHangMan extends HangmanGame
 {
     
 
-//	private String OriginSecretWord = "";//To store the secret word
+	private String secretWord = "";//To store the secret word
     private int GuessRemainingNum;//to store the number of guess for the user
     private int LetterLeftNum;//to store the number of the letters in the secret word has not been guessed correctly
     private String CurrentState = "";//store the current guessing situation
-//    private String LetterGuessHistory = "";//store the letter user has tried
+    private String LetterGuessHistory = "";//store the letter user has tried
     private char LetterGuess;//the letter the user guess right now
 
     /**
@@ -29,8 +29,8 @@ public class NormalHangMan extends HangmanGame
      * @param secretWord the word that the player is trying to guess
      * @param numGuesses the number of guesses allowed
      */
-    public NormalHangMan(String secretWord, int numGuesses, String LetterHistory){
-        secretWord = secretWord;
+    public NormalHangMan(String SecretWord, int numGuesses, String LetterHistory){
+        secretWord = SecretWord;
         GuessRemainingNum = numGuesses;
         LetterLeftNum = secretWord.length();
         for(int i = 0; i < secretWord.length(); i++)
@@ -48,12 +48,12 @@ public class NormalHangMan extends HangmanGame
         LetterGuessHistory = LetterHistory;
     }   
     
-/*
+
     public String getSecretWord()
     {
-        return OriginSecretWord;
+        return secretWord;
     }
-*/
+
     
     public int numGuessesRemaining()
     {
@@ -77,10 +77,13 @@ public class NormalHangMan extends HangmanGame
         else
             return false;
     }
+    
+
     public String lettersGuessed()
     {
         return LetterGuessHistory;
     }
+
     public String displayGameState()
     {
         return CurrentState;
@@ -116,7 +119,7 @@ public class NormalHangMan extends HangmanGame
                 tempB = false;
             }
         }
-        if(!RepeatInput(ch))
+        if(!RepeatInput(ch,LetterGuessHistory))
         {
             LetterGuessHistory = LetterGuessHistory + LetterGuess;
 
@@ -132,6 +135,9 @@ public class NormalHangMan extends HangmanGame
         }
         else return false;
     }
+    
+    /*
+     * 
     public boolean RepeatInput(char c)
     {
     	for (int i = 0; i < LetterGuessHistory.length(); i++) {
@@ -139,7 +145,7 @@ public class NormalHangMan extends HangmanGame
     	}
     	return false;
     }
-    
+    */
    
 }
     
