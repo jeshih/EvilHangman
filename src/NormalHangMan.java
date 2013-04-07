@@ -14,7 +14,7 @@ public class NormalHangMan extends HangmanGame
 
 //	private String secretWord = "";//To store the secret word
 //    private int GuessRemainingNum;//to store the number of guess for the user
-    private int LetterLeftNum;//to store the number of the letters in the secret word has not been guessed correctly
+//    private int LetterLeftNum;//to store the number of the letters in the secret word has not been guessed correctly
 //    private String CurrentState = "";//store the current guessing situation
 //    private String LetterGuessHistory = "";//store the letter user has tried
     private char LetterGuess;//the letter the user guess right now
@@ -32,7 +32,7 @@ public class NormalHangMan extends HangmanGame
     public NormalHangMan(String SecretWord, int numGuesses, String LetterHistory){
         secretWord = SecretWord;
         guessRemaining = numGuesses;
-        LetterLeftNum = secretWord.length();
+        lettersLeft = secretWord.length();
         for(int i = 0; i < secretWord.length(); i++)
         {
             state += "_ ";
@@ -40,7 +40,7 @@ public class NormalHangMan extends HangmanGame
             {
                 if(secretWord.charAt(i) == secretWord.charAt(j-1))
                 {
-                    LetterLeftNum--;//If the letter appears many times in the secret word, it will be counted just once.
+                	lettersLeft--;//If the letter appears many times in the secret word, it will be counted just once.
                     break;
                 }
             }
@@ -60,11 +60,13 @@ public class NormalHangMan extends HangmanGame
         return GuessRemainingNum;
     }
     */
-    
+    /*
     public int numLettersRemaining()
     {
         return LetterLeftNum;
     }
+    
+    */
     public boolean isWin()
     {
         if(guessRemaining == 0)
@@ -74,7 +76,7 @@ public class NormalHangMan extends HangmanGame
     }
     public boolean gameOver()
     {
-        if(guessRemaining == 0 || LetterLeftNum == 0)
+        if(guessRemaining == 0 || lettersLeft == 0)
             return true;
         else
             return false;
@@ -130,7 +132,7 @@ public class NormalHangMan extends HangmanGame
 
             if(tempB)
             {
-                LetterLeftNum--;
+            	lettersLeft--;
             }
             else
             {

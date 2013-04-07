@@ -5,6 +5,7 @@ public abstract class HangmanGame
 	protected String secretWord = "";
 	protected String state = "";
 	protected int guessRemaining;
+	protected int lettersLeft;
 	
 	
     /**
@@ -51,7 +52,9 @@ public abstract class HangmanGame
      * the actually number of letters it will take to fill those blanks.
      * @return the number of letters in the secret word that still have to be guessed
      */
-    public abstract int numLettersRemaining();
+    public int numLettersRemaining(){
+    	return lettersLeft;
+    }
     
     /**
      * Gives a display-ready String-ified version of the current state of the secret word, showing letters

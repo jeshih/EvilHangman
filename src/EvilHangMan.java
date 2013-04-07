@@ -16,6 +16,7 @@ public class EvilHangMan extends HangmanGame {
 	public EvilHangMan(int StringLength, int numGuesses) {
 		guessRemaining = numGuesses;
 		secretStringLength = StringLength;
+		lettersLeft = 26;
 		Scanner Scanner = null;
 		try {
 			Scanner = new Scanner(new File("dictionary.txt"));// read the dictionary
@@ -50,9 +51,11 @@ public class EvilHangMan extends HangmanGame {
 	
 	*/
 
+	/*
 	public int numLettersRemaining() {
 		return 26; // because they never get one right!
 	}
+	*/
 
 	public boolean isWin() {
 		return false;
