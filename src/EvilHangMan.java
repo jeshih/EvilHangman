@@ -81,6 +81,26 @@ public class EvilHangMan extends HangmanGame {
 	}
 */
 
+	public String[] getNewWord(char ch, int tempWordNum){
+		String[] temp = new String[tempWordNum];
+		int tempIndex = 0;
+		for (int i = 0; i < numWords; i++) {
+			for (int j = 0; j < secretStringLength; j++) {
+				if (Wordlist[i].charAt(j) == ch) {
+					break;
+				} else {
+					if (j == secretStringLength - 1) {
+						if (Wordlist[i].charAt(j) != ch) {
+							temp[tempIndex] = Wordlist[i];
+							tempIndex++;
+						}
+					}
+				}
+			}
+		}
+		return temp;
+	}
+	
 	public boolean makeGuess(char ch) {
 		GuessResult = false;
 		l = ch;
@@ -103,7 +123,10 @@ public class EvilHangMan extends HangmanGame {
 			}
 			// we choose the words that don't contain the letter the user
 			// guessed, and they will be the new possible secret words.
-			String[] temp = new String[tempWordNum];
+			
+			String[] temp = getNewWord(ch, tempWordNum);
+			
+			/*String[] temp = new String[tempWordNum];
 			int tempIndex = 0;
 			for (int i = 0; i < numWords; i++) {
 				for (int j = 0; j < secretStringLength; j++) {
@@ -119,6 +142,8 @@ public class EvilHangMan extends HangmanGame {
 					}
 				}
 			}
+			*/
+			
 			if (tempWordNum == 0) {
 
 				secretWord = Wordlist[0];
