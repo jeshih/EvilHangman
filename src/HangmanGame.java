@@ -1,14 +1,16 @@
 public abstract class HangmanGame
 {
 
-//	protected String LetterGuessHistory;
-//	protected String secretWord;
+	protected String LetterGuessHistory = "";
+	protected String secretWord = "";
 	
 	
     /**
      * @return the original secret word.
      */
-    public abstract String getSecretWord();
+    public String getSecretWord(){
+    	return secretWord;
+    }
     
     /**
      * Simulates the player guessing a letter in the word and updates the state of game
@@ -61,7 +63,9 @@ public abstract class HangmanGame
      * Duplicates should not be added.
      * @return a String showing which letters have already been guessed.
      */
-    public abstract String lettersGuessed();
+    public String lettersGuessed(){
+    	return LetterGuessHistory;
+    }
     
     public boolean RepeatInput(char c, String history)
     {

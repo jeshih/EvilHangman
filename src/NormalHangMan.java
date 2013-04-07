@@ -12,11 +12,11 @@ public class NormalHangMan extends HangmanGame
 {
     
 
-	private String secretWord = "";//To store the secret word
+//	private String secretWord = "";//To store the secret word
     private int GuessRemainingNum;//to store the number of guess for the user
     private int LetterLeftNum;//to store the number of the letters in the secret word has not been guessed correctly
     private String CurrentState = "";//store the current guessing situation
-    private String LetterGuessHistory = "";//store the letter user has tried
+//    private String LetterGuessHistory = "";//store the letter user has tried
     private char LetterGuess;//the letter the user guess right now
 
     /**
@@ -48,12 +48,12 @@ public class NormalHangMan extends HangmanGame
         LetterGuessHistory = LetterHistory;
     }   
     
-
+/*
     public String getSecretWord()
     {
         return secretWord;
     }
-
+*/
     
     public int numGuessesRemaining()
     {
@@ -78,12 +78,13 @@ public class NormalHangMan extends HangmanGame
             return false;
     }
     
-
+/*
     public String lettersGuessed()
     {
         return LetterGuessHistory;
     }
-
+*/
+    
     public String displayGameState()
     {
         return CurrentState;
@@ -93,8 +94,7 @@ public class NormalHangMan extends HangmanGame
     	if (Character.isLetter(ch) == false) return false;
         boolean tempB = true;
         LetterGuess = ch;
-        int i;
-        for(i = 0; i < secretWord.length(); i++)
+        for(int i = 0; i < secretWord.length(); i++)
         {
             if(secretWord.charAt(i) == ch)//if the user guess right, adjust the current state.
             {

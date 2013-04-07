@@ -3,10 +3,10 @@ import java.io.*;
 
 
 public class EvilHangMan extends HangmanGame {
-	private String secretWord = "";// To store the secret word
+//	private String secretWord = "";// To store the secret word
 	private int guess;// to store the number of guess for the user
 	private String state = "";// store the current guessing situation
-	private String LetterGuessHistory = "";// store the letters user has tried
+//	private String LetterGuessHistory = "";// store the letters user has tried
 	private char l;// the letter the user guess right now
 	private String[] Wordlist = new String[235000];// to store the dictionary
 	private int numWords = 0;// count the number of possible secret words.
@@ -38,10 +38,12 @@ public class EvilHangMan extends HangmanGame {
 		Scanner.close();
 	}
 
+	/*
 	public String getSecretWord() {
 		return secretWord;
 	}
-
+*/
+	
 	public int numGuessesRemaining() {
 		return guess;
 	}
@@ -61,10 +63,12 @@ public class EvilHangMan extends HangmanGame {
 			return false;
 	}
 
+	/*
 	public String lettersGuessed() {
 		return LetterGuessHistory;
 	}
 
+*/
 	public String displayGameState() {
 		return state;
 	}
