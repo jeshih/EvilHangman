@@ -45,7 +45,10 @@ public class NormalHangMan extends HangmanGame
                 }
             }
         }
-        LetterGuessHistory = LetterHistory;
+        for (int i = 0; i< LetterHistory.length(); i++){ 
+        	LetterGuessHistory.add(LetterHistory.charAt(i));
+        }
+//        LetterGuessHistory = LetterHistory;
     }   
     
 /*
@@ -128,7 +131,7 @@ public class NormalHangMan extends HangmanGame
         }
         if(!RepeatInput(ch,LetterGuessHistory))
         {
-            LetterGuessHistory = LetterGuessHistory + LetterGuess;
+            LetterGuessHistory.add(LetterGuess);
 
             if(tempB)
             {

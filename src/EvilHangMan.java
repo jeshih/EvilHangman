@@ -156,7 +156,7 @@ public class EvilHangMan extends HangmanGame {
 				GuessResult = false;
 			}
 			if (!GuessResult) {
-				LetterGuessHistory = LetterGuessHistory + l; //changed to upper case L
+				LetterGuessHistory.add(l); //changed to upper case L
 			}
 
 		} else return false;

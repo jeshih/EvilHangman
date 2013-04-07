@@ -1,7 +1,13 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
 public abstract class HangmanGame
 {
 
-	protected String LetterGuessHistory = "";
+//	protected String LetterGuessHistory = "";
+	protected ArrayList<Character> LetterGuessHistory = new ArrayList<Character>();
 	protected String secretWord = "";
 	protected String state = "";
 	protected int guessRemaining;
@@ -73,13 +79,17 @@ public abstract class HangmanGame
      * @return a String showing which letters have already been guessed.
      */
     public String lettersGuessed(){
-    	return LetterGuessHistory;
+    	String str = "";
+    	for (char c : LetterGuessHistory){
+    		str = str + c;
+    	}
+    	return str;
     }
     
-    public boolean RepeatInput(char c, String history)
+    public boolean RepeatInput(char c, ArrayList<Character> history)
     {
-    	for (int i = 0; i < history.length(); i++) {
-    		if (history.charAt(i) == c) return true;
+    	for (int i = 0; i < history.size(); i++) {
+    		if (history.get(i) == c) return true;
     	}
     	return false;
     }
