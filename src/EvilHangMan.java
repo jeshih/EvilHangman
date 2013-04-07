@@ -4,8 +4,8 @@ import java.io.*;
 
 public class EvilHangMan extends HangmanGame {
 //	private String secretWord = "";// To store the secret word
-	private int guess;// to store the number of guess for the user
-	private String state = "";// store the current guessing situation
+//	private int guess;// to store the number of guess for the user
+//	private String state = "";// store the current guessing situation
 //	private String LetterGuessHistory = "";// store the letters user has tried
 	private char l;// the letter the user guess right now
 	private String[] Wordlist = new String[235000];// to store the dictionary
@@ -14,7 +14,7 @@ public class EvilHangMan extends HangmanGame {
 	private boolean GuessResult = false;
 
 	public EvilHangMan(int StringLength, int numGuesses) {
-		guess = numGuesses;
+		guessRemaining = numGuesses;
 		secretStringLength = StringLength;
 		Scanner Scanner = null;
 		try {
@@ -43,10 +43,12 @@ public class EvilHangMan extends HangmanGame {
 		return secretWord;
 	}
 */
-	
+	/*
 	public int numGuessesRemaining() {
 		return guess;
 	}
+	
+	*/
 
 	public int numLettersRemaining() {
 		return 26; // because they never get one right!
@@ -57,7 +59,7 @@ public class EvilHangMan extends HangmanGame {
 	}
 
 	public boolean gameOver() {
-		if (guess == 0)
+		if (guessRemaining == 0)
 			return true;
 		else
 			return false;
@@ -69,10 +71,12 @@ public class EvilHangMan extends HangmanGame {
 	}
 
 */
+	
+	/*
 	public String displayGameState() {
 		return state;
 	}
-
+*/
 
 	public boolean makeGuess(char ch) {
 		GuessResult = false;
@@ -120,7 +124,7 @@ public class EvilHangMan extends HangmanGame {
 				secretWord = temp[0];
 				numWords = tempWordNum;
 				Wordlist = temp;
-				guess--;
+				guessRemaining--;
 				GuessResult = false;
 			}
 			if (!GuessResult) {

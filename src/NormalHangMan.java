@@ -13,9 +13,9 @@ public class NormalHangMan extends HangmanGame
     
 
 //	private String secretWord = "";//To store the secret word
-    private int GuessRemainingNum;//to store the number of guess for the user
+//    private int GuessRemainingNum;//to store the number of guess for the user
     private int LetterLeftNum;//to store the number of the letters in the secret word has not been guessed correctly
-    private String CurrentState = "";//store the current guessing situation
+//    private String CurrentState = "";//store the current guessing situation
 //    private String LetterGuessHistory = "";//store the letter user has tried
     private char LetterGuess;//the letter the user guess right now
 
@@ -31,11 +31,11 @@ public class NormalHangMan extends HangmanGame
      */
     public NormalHangMan(String SecretWord, int numGuesses, String LetterHistory){
         secretWord = SecretWord;
-        GuessRemainingNum = numGuesses;
+        guessRemaining = numGuesses;
         LetterLeftNum = secretWord.length();
         for(int i = 0; i < secretWord.length(); i++)
         {
-            CurrentState += "_ ";
+            state += "_ ";
             for(int j = i; j > 0; j--)
             {
                 if(secretWord.charAt(i) == secretWord.charAt(j-1))
@@ -54,25 +54,27 @@ public class NormalHangMan extends HangmanGame
         return secretWord;
     }
 */
-    
+    /*
     public int numGuessesRemaining()
     {
         return GuessRemainingNum;
     }
+    */
+    
     public int numLettersRemaining()
     {
         return LetterLeftNum;
     }
     public boolean isWin()
     {
-        if(GuessRemainingNum == 0)
+        if(guessRemaining == 0)
             return false;//if the user have no chance to guess again, it means the user loses.
         else
             return true;
     }
     public boolean gameOver()
     {
-        if(GuessRemainingNum == 0 || LetterLeftNum == 0)
+        if(guessRemaining == 0 || LetterLeftNum == 0)
             return true;
         else
             return false;
@@ -84,11 +86,14 @@ public class NormalHangMan extends HangmanGame
         return LetterGuessHistory;
     }
 */
-    
+    /*
     public String displayGameState()
     {
         return CurrentState;
     }
+    
+    */
+    
     public boolean makeGuess(char ch)
     {
     	if (Character.isLetter(ch) == false) return false;
@@ -107,10 +112,10 @@ public class NormalHangMan extends HangmanGame
                     }
                     else
                     {
-                        temp = temp + CurrentState.charAt(2*j) + CurrentState.charAt(2*j+1);              
+                        temp = temp + state.charAt(2*j) + state.charAt(2*j+1);              
                     }
                 }
-                CurrentState = temp;
+                state = temp;
                 tempB = true;
                 break;
             }
@@ -129,7 +134,7 @@ public class NormalHangMan extends HangmanGame
             }
             else
             {
-                GuessRemainingNum--;
+            	guessRemaining--;
             }
             return tempB;
         }

@@ -3,6 +3,8 @@ public abstract class HangmanGame
 
 	protected String LetterGuessHistory = "";
 	protected String secretWord = "";
+	protected String state = "";
+	protected int guessRemaining;
 	
 	
     /**
@@ -39,7 +41,9 @@ public abstract class HangmanGame
     /**
      * @return the number of guesses the player has left
      */
-    public abstract int numGuessesRemaining();
+    public int numGuessesRemaining(){
+    	return guessRemaining;
+    }
     
     /**
      * The number of letters remaining to be guessed in the secret word - i.e.
@@ -56,7 +60,9 @@ public abstract class HangmanGame
      * the method might return something like "L A B _ R A _ _ R Y"
      * @return a String of the current state of the secret word.
      */
-    public abstract String displayGameState();
+    public String displayGameState(){
+    	return state;
+    }
     
     /**
      * A String representing the letters guessed so far in the order they were guessed.
